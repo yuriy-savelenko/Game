@@ -146,7 +146,7 @@ container.addEventListener('click', (event) => {
             target.style.backgroundColor = (targetNumber >= target.textContent) ? '#306b3bab' : 'rgb(88, 76, 60, .5)';
         }, 500)
     }
-    if (targetNumber === 2 && numbers.length === 25) {
+    if (targetNumber === 26 && numbers.length === 25) {
         deleteTable()
         clearInterval(intervalId);
         message.classList.remove('hide');
