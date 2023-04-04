@@ -51,14 +51,13 @@ const creatTable = () => {
 
 const deleteTable = () => {
     container.replaceChildren();
-}
+};
 
 btnStart.addEventListener('click', () => {
     rows = 5;
     columns = 5;
-    console.log(rows, columns)
     message.classList.add('hide');
-    audio.play()
+    audio.play();
     generateNumbers(rows, columns);
     creatTable(rows, columns);
     timerBox.classList.add('show');
@@ -90,10 +89,10 @@ btnFinish.addEventListener('click', () => {
     targetNumber = 1;
     timer = 60;
     message.classList.remove('hide');
-    message.textContent = 'Найди цифры от 1 до 25 по порядку'
+    message.textContent = 'Найди цифры от 1 до 25 по порядку';
     btnFinish.classList.remove('show');
     btnStart.classList.remove('hide');
-    timerBox.classList.remove('show')
+    timerBox.classList.remove('show');
 })
 
 btnNextLevel.addEventListener('click', () => {
@@ -144,17 +143,17 @@ container.addEventListener('click', (event) => {
         audioMiss.play();
         setTimeout(() => {
             target.style.backgroundColor = (targetNumber >= target.textContent) ? '#306b3bab' : 'rgb(88, 76, 60, .5)';
-        }, 500)
-    }
+        }, 500);
+    };
     if (targetNumber === 26 && numbers.length === 25) {
-        deleteTable()
+        deleteTable();
         clearInterval(intervalId);
         message.classList.remove('hide');
         message.textContent = 'Вы справились!';
         btnNextLevel.classList.remove('hide');
     };
     if (targetNumber === 36 && numbers.length === 35) {
-        deleteTable()
+        deleteTable();
         clearInterval(intervalId);
         message.classList.remove('hide');
         message.textContent = 'Вы справились!';
@@ -162,5 +161,4 @@ container.addEventListener('click', (event) => {
         btnNextLevel.classList.add('show');
     };
 
-}
-);
+});
