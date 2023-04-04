@@ -43,7 +43,6 @@ const creatTable = () => {
         box.style.color = `rgb(${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)})`;
         box.textContent = e;
         container.append(box);
-        console.log(numbers.length);
     })
 }
 
