@@ -1,0 +1,135 @@
+@keyframes anim {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1700px;
+  background-color: rgb(194, 158, 134);
+  background-image: url(/img/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+  font-family: "Roboto", sans-serif;
+}
+
+.main_container {
+  padding-top: 45px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 70%;
+  height: 80vh;
+  margin: 0 auto;
+  background-color: rgba(88, 76, 60, 0.5);
+  border-radius: 10px;
+  color: rgb(103, 21, 21);
+  filter: drop-shadow(5px 5px 10px #666);
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18.5%;
+  margin: 5px;
+  border: 2px solid #413523;
+  border-radius: 10px;
+  background-color: rgba(88, 76, 60, 0.5);
+  filter: drop-shadow(5px 5px 10px #666);
+}
+
+.btn {
+  top: 0;
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+  color: #701b09;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 27px;
+  font-weight: bold;
+  background-color: rgba(88, 76, 60, 0.5);
+  filter: drop-shadow(5px 5px 10px #666);
+}
+
+.btn1 {
+  left: 0;
+}
+
+.btn2 {
+  visibility: hidden;
+  right: 0;
+}
+
+.btn3 {
+  left: 15%;
+}
+
+.timer {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  font-size: 38px;
+  color: rgb(25, 151, 29);
+  font-weight: bold;
+}
+
+.anim {
+  animation: anim 2s alternate ease-in-out infinite;
+}
+
+.message {
+  position: absolute;
+  color: #701b09;
+  z-index: 1;
+  top: 42%;
+  font-size: 50px;
+}
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+@media (max-width: 490px) {
+  .container {
+    width: 100%;
+  }
+  .btn {
+    font-size: 15px;
+  }
+  .btn3 {
+    left: 0;
+    width: 40%;
+  }
+  .box {
+    width: 18.88%;
+    margin: 2px;
+  }
+  .message {
+    text-align: center;
+    left: 0;
+    font-size: 25px;
+    font-weight: bold;
+  }
+}/*# sourceMappingURL=style.css.map */

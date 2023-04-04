@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <title>Brain charge</title>
+
+</head>
+
+<body>
+    <audio src="/audio/audio.mp3" id="audio" loop></audio>
+    <audio src="audio/audio_click.mp3" id="audio_click"></audio>
+    <audio src="audio/audio_miss.mp3" id="audio_miss"></audio>
+    <div class="main_container">
+        <div id="timer" class="timer"></div>
+        <div id="container" class="container">
+        </div>
+        <div class="message" id="message">Найди по порядку все цифры от 1 и вверх</div>
+        <button class="btn btn1 anim" id="btn1">Начать игру</button>
+        <button class="btn btn2 hide-btn" id="btn2">Начать сначала</button>
+        <button class="btn btn3 hide" id="btn3">Следующий уровень</button>
+    </div>
+    <script src=" /js/index.js"></script>
+</body>
+
+</html>
