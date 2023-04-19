@@ -1,13 +1,26 @@
-@keyframes anim {
+@-webkit-keyframes anim {
   from {
-    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   to {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes anim {
+  from {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -24,14 +37,24 @@ body {
 .main_container {
   padding-top: 45px;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   position: relative;
   width: 70%;
   height: 80vh;
@@ -39,19 +62,27 @@ body {
   background-color: rgba(88, 76, 60, 0.5);
   border-radius: 10px;
   color: rgb(103, 21, 21);
-  filter: drop-shadow(5px 5px 10px #666);
+  -webkit-filter: drop-shadow(5px 5px 10px #666);
+          filter: drop-shadow(5px 5px 10px #666);
 }
 
 .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 18.5%;
   margin: 5px;
   border: 2px solid #413523;
   border-radius: 10px;
   background-color: rgba(88, 76, 60, 0.5);
-  filter: drop-shadow(5px 5px 10px #666);
+  -webkit-filter: drop-shadow(5px 5px 10px #666);
+          filter: drop-shadow(5px 5px 10px #666);
 }
 
 .btn {
@@ -66,7 +97,8 @@ body {
   font-size: 27px;
   font-weight: bold;
   background-color: rgba(88, 76, 60, 0.5);
-  filter: drop-shadow(5px 5px 10px #666);
+  -webkit-filter: drop-shadow(5px 5px 10px #666);
+          filter: drop-shadow(5px 5px 10px #666);
 }
 
 .btn1 {
@@ -92,7 +124,8 @@ body {
 }
 
 .anim {
-  animation: anim 2s alternate ease-in-out infinite;
+  -webkit-animation: anim 2s alternate ease-in-out infinite;
+          animation: anim 2s alternate ease-in-out infinite;
 }
 
 .message {
@@ -131,4 +164,4 @@ body {
     font-size: 25px;
     font-weight: bold;
   }
-}/*# sourceMappingURL=style.css.map */
+}
