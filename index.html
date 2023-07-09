@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <title>Brain charge</title>
 
@@ -17,13 +19,18 @@
     <audio src="audio/audio_click.mp3" id="audio_click"></audio>
     <audio src="audio/audio_miss.mp3" id="audio_miss"></audio>
     <div class="main_container">
-        <div id="timer" class="timer"></div>
-        <div id="container" class="container">
+        <div class="menu">
+            <button class="menu__btn menu__btn1 anim" id="btn1">Play</button>
+            <button class="menu__btn menu__btn2" id="btn2">Try again</button>
+            <button class="menu__btn menu__btn3 disabled" id="btn3" disabled>Next level</button>
         </div>
-        <div class="message" id="message">Найди по порядку все цифры от 1 и вверх</div>
-        <button class="btn btn1 anim" id="btn1">Начать игру</button>
-        <button class="btn btn2 hide-btn" id="btn2">Начать сначала</button>
-        <button class="btn btn3 hide" id="btn3">Следующий уровень</button>
+        <div class="game__container">
+            <div id="timer" class="timer"></div>
+            <div id="container" class="container">
+            </div>
+                <p id="message" class="message__text">Find in order all the numbers from 1 and up</p>
+        </div>
+
     </div>
     <script src=" /js/index.js"></script>
 </body>

@@ -1,3 +1,6 @@
+:root {
+  --text-color: rgb(80 76 76);
+}
 @keyframes anim {
   from {
     transform: scale(1.2);
@@ -12,37 +15,39 @@
 
 body {
   max-width: 1700px;
+  margin: 0 auto;
   background-color: rgb(194, 158, 134);
   background-image: url(/img/bg.jpg);
   background-position: center;
   background-size: cover;
   height: 100vh;
   background-repeat: no-repeat;
-  font-family: "Roboto", sans-serif;
+  font-family: "Lakki Reddy", cursive;
+  overflow: hidden;
 }
 
 .main_container {
-  padding-top: 45px;
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  width: 70%;
+  width: 75%;
   height: 80vh;
   margin: 0 auto;
-  background-color: rgba(88, 76, 60, 0.5);
   border-radius: 10px;
   color: rgb(103, 21, 21);
   filter: drop-shadow(5px 5px 10px #666);
 }
 
-.box {
+.game__container {
+  margin: 0 auto;
+}
+
+.game-field {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,41 +57,37 @@ body {
   border-radius: 10px;
   background-color: rgba(88, 76, 60, 0.5);
   filter: drop-shadow(5px 5px 10px #666);
+  cursor: pointer;
 }
 
-.btn {
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  gap: 1rem;
+}
+.menu__btn {
   top: 0;
-  position: absolute;
   cursor: pointer;
   background-color: transparent;
   color: #701b09;
   border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  font-size: 27px;
+  font-family: inherit;
+  white-space: nowrap;
+  font-size: 3rem;
   font-weight: bold;
-  background-color: rgba(88, 76, 60, 0.5);
-  filter: drop-shadow(5px 5px 10px #666);
 }
-
-.btn1 {
-  left: 0;
-}
-
-.btn2 {
-  visibility: hidden;
-  right: 0;
-}
-
-.btn3 {
-  left: 15%;
+.menu__btn:hover {
+  color: #af2c12;
 }
 
 .timer {
   visibility: hidden;
-  position: absolute;
+  text-align: center;
   top: 0;
-  font-size: 38px;
+  left: 50%;
+  right: 50%;
+  font-size: 3rem;
   color: rgb(25, 151, 29);
   font-weight: bold;
 }
@@ -95,12 +96,23 @@ body {
   animation: anim 2s alternate ease-in-out infinite;
 }
 
-.message {
+.message__text {
   position: absolute;
+  font-weight: bold;
   color: #701b09;
   z-index: 1;
-  top: 42%;
-  font-size: 50px;
+}
+
+.message-anim {
+  top: 34%;
+  left: 46%;
+  font-size: 1rem;
+  transform: scale(4);
+  transition: transform 2s ease;
+}
+
+.message-congratulation {
+  left: 39%;
 }
 
 .show {
@@ -109,6 +121,10 @@ body {
 
 .hide {
   visibility: hidden;
+}
+
+.disabled {
+  color: rgb(80, 76, 76);
 }
 
 @media (max-width: 490px) {
@@ -122,13 +138,12 @@ body {
     left: 0;
     width: 40%;
   }
-  .box {
+  .game-field {
     width: 18.88%;
     margin: 2px;
   }
   .message {
     text-align: center;
-    left: 0;
     font-size: 25px;
     font-weight: bold;
   }

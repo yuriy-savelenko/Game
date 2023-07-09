@@ -1,3 +1,7 @@
+:root {
+    --text-color: rgb(80 76 76);
+}
+
 @-webkit-keyframes anim {
     from {
         -webkit-transform: scale(1.2);
@@ -29,28 +33,29 @@
 
 body {
     max-width: 1700px;
+    margin: 0 auto;
     background-color: rgb(194, 158, 134);
     background-image: url(/img/bg.jpg);
     background-position: center;
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lakki Reddy', cursive;
+    overflow: hidden;
 }
 
 .main_container {
-    padding-top: 45px;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    // -webkit-box-orient: vertical;
+    // -webkit-box-direction: normal;
+    // -ms-flex-direction: column;
+    // flex-direction: column;
+    // -webkit-box-align: center;
+    // -ms-flex-align: center;
+    // align-items: center;
 }
 
 .container {
@@ -60,10 +65,10 @@ body {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     position: relative;
-    width: 70%;
+    width: 75%;
     height: 80vh;
     margin: 0 auto;
-    background-color: rgb(88, 76, 60, .5);
+    // background-color: rgb(88, 76, 60, .5);
     border-radius: 10px;
     color: rgb(103, 21, 21);
     -webkit-filter: drop-shadow(5px 5px 10px #666);
@@ -71,7 +76,11 @@ body {
 
 }
 
-.box {
+.game__container {
+    margin: 0 auto;
+}
+
+.game-field {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -88,43 +97,51 @@ body {
     background-color: rgb(88, 76, 60, .5);
     -webkit-filter: drop-shadow(5px 5px 10px #666);
     filter: drop-shadow(5px 5px 10px #666);
-}
-
-.btn {
-    top: 0;
-    position: absolute;
     cursor: pointer;
-    background-color: transparent;
-    color: #701b09;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 27px;
-    font-weight: bold;
-    background-color: rgb(88, 76, 60, .5);
-    -webkit-filter: drop-shadow(5px 5px 10px #666);
-    filter: drop-shadow(5px 5px 10px #666);
+}
+
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    gap: 1rem;
+
+    &__btn {
+        top: 0;
+        // position: absolute;
+        cursor: pointer;
+        background-color: transparent;
+        color: #701b09;
+        border: none;
+        font-family: inherit;
+        white-space: nowrap;
+        // border-radius: 10px;
+        // padding: 10px 13px;
+        font-size: 3rem;
+        font-weight: bold;
+        // background-color: rgba(179, 162, 162, 0.35);
+        // -webkit-filter: drop-shadow(5px 5px 10px #666);
+        // filter: drop-shadow(5px 5px 10px #666);
+
+    }
+
+    &__btn:hover {
+        color: #af2c12;
+    }
+
 
 }
 
-.btn1 {
-    left: 0;
-}
-
-.btn2 {
-    visibility: hidden;
-    right: 0;
-}
-
-.btn3 {
-    left: 15%;
-}
 
 .timer {
     visibility: hidden;
-    position: absolute;
+    text-align: center;
     top: 0;
-    font-size: 38px;
+    left: 50%;
+    right: 50%;
+    font-size: 3rem;
     color: rgb(25, 151, 29);
     font-weight: bold;
 }
@@ -135,12 +152,27 @@ body {
     animation: anim 2s alternate ease-in-out infinite;
 }
 
-.message {
+
+.message__text {
     position: absolute;
+    // border: 1px solid #701b09;
+    font-weight: bold;
+    // padding: 20px;
+    // background-color: rgb(199, 185, 185, .5);
     color: #701b09;
     z-index: 1;
-    top: 42%;
-    font-size: 50px;
+}
+
+.message-anim {
+    top: 34%;
+    left: 46%;
+    font-size: 1rem;
+    transform: scale(4);
+    transition: transform 2s ease;
+}
+
+.message-congratulation {
+    left: 39%;
 }
 
 .show {
@@ -149,6 +181,11 @@ body {
 
 .hide {
     visibility: hidden;
+}
+
+.disabled {
+    color: rgb(80 76 76);
+    ;
 }
 
 @media(max-width: 490px) {
@@ -165,14 +202,13 @@ body {
         width: 40%;
     }
 
-    .box {
+    .game-field {
         width: 18.88%;
         margin: 2px;
     }
 
     .message {
         text-align: center;
-        left: 0;
         font-size: 25px;
         font-weight: bold;
     }
