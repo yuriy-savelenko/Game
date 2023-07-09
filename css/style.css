@@ -1,16 +1,33 @@
+<<<<<<< HEAD
 :root {
   --text-color: rgb(80 76 76);
 }
 @keyframes anim {
+=======
+@-webkit-keyframes anim {
+>>>>>>> f96dec41cf7101b591b86078cd6f3ca59343cb0f
   from {
-    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   to {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes anim {
+  from {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -28,36 +45,67 @@ body {
 
 .main_container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+<<<<<<< HEAD
+=======
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+>>>>>>> f96dec41cf7101b591b86078cd6f3ca59343cb0f
 }
 
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   position: relative;
   width: 75%;
   height: 80vh;
   margin: 0 auto;
   border-radius: 10px;
   color: rgb(103, 21, 21);
-  filter: drop-shadow(5px 5px 10px #666);
+  -webkit-filter: drop-shadow(5px 5px 10px #666);
+          filter: drop-shadow(5px 5px 10px #666);
 }
 
+<<<<<<< HEAD
 .game__container {
   margin: 0 auto;
 }
 
 .game-field {
+=======
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+>>>>>>> f96dec41cf7101b591b86078cd6f3ca59343cb0f
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 18.5%;
   margin: 5px;
   border: 2px solid #413523;
   border-radius: 10px;
   background-color: rgba(88, 76, 60, 0.5);
+<<<<<<< HEAD
   filter: drop-shadow(5px 5px 10px #666);
   cursor: pointer;
+=======
+  -webkit-filter: drop-shadow(5px 5px 10px #666);
+          filter: drop-shadow(5px 5px 10px #666);
+>>>>>>> f96dec41cf7101b591b86078cd6f3ca59343cb0f
 }
 
 .menu {
@@ -76,6 +124,12 @@ body {
   white-space: nowrap;
   font-size: 3rem;
   font-weight: bold;
+<<<<<<< HEAD
+=======
+  background-color: rgba(88, 76, 60, 0.5);
+  -webkit-filter: drop-shadow(5px 5px 10px #666);
+          filter: drop-shadow(5px 5px 10px #666);
+>>>>>>> f96dec41cf7101b591b86078cd6f3ca59343cb0f
 }
 .menu__btn:hover {
   color: #af2c12;
@@ -93,7 +147,8 @@ body {
 }
 
 .anim {
-  animation: anim 2s alternate ease-in-out infinite;
+  -webkit-animation: anim 2s alternate ease-in-out infinite;
+          animation: anim 2s alternate ease-in-out infinite;
 }
 
 .message__text {
@@ -147,4 +202,4 @@ body {
     font-size: 25px;
     font-weight: bold;
   }
-}/*# sourceMappingURL=style.css.map */
+}

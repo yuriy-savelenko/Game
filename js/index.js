@@ -14,7 +14,7 @@ let columns;
 let intervalId;
 let timer = 55;
 
-// Функция генерирует числа от 1 до заданного числа(вычисляемого из произведения заданных в аргументы чисел),
+// Функция генерирует числа от 1 до заданного числа (вычисляемого из произведения заданных в аргументы чисел),
 // далее добавляет их в пустой массив numbers и перемешивает массив в рандомном порядке.
 
 const generateNumbers = (row, col) => {
@@ -33,10 +33,11 @@ const getRandomNumberInRange = (min, max) => {
 };
 
 // Функция создает дивы с цифрами рандомного размера и цвета внутри, после чего заполняет 
-// родительский контейнер данными дивами (количество дивов является результатом вычисления произведения кол-ва колонок на кол-во),
+// родительский контейнер данными дивами (количество дивов является результатом вычисления произведения кол-ва колонок на кол-во).
 
 const creatTable = () => {
     numbers.forEach((e) => {
+<<<<<<< HEAD
         const gameField = document.createElement('div');
         gameField.classList.add('game-field');
         gameField.style.fontSize = `${getRandomNumberInRange(30, 70) + 'px'}`;
@@ -44,6 +45,14 @@ const creatTable = () => {
         gameField.textContent = e;
         container.append(gameField);
         console.log(numbers.length);
+=======
+        const box = document.createElement('div');
+        box.classList.add('box');
+        box.style.fontSize = `${getRandomNumberInRange(20, 60) + 'px'}`;
+        box.style.color = `rgb(${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)})`;
+        box.textContent = e;
+        container.append(box);
+>>>>>>> f96dec41cf7101b591b86078cd6f3ca59343cb0f
     })
 }
 
