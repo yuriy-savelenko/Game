@@ -86,10 +86,10 @@ body {
         background-image: url(../img/example.png);
         background-repeat: no-repeat;
         background-size: 500px 500px;
-        width: 100%;
+        width: 500px;
+        height: 500px;
         top: 27%;
         left: 35%;
-        height: 100%;
     }
 }
 
@@ -167,7 +167,6 @@ body {
     animation: anim 2s alternate ease-in-out infinite;
 }
 
-
 .message__text {
     position: absolute;
     top: 16%;
@@ -201,10 +200,57 @@ body {
 
 .disabled {
     color: rgb(80 76 76);
-    ;
 }
 
+.shrink-game-field {
+    margin: 3px;
+}
+
+@media(max-width: 1440px) {
+    .message-anim {
+        transform: scale(3);
+    }
+}
+
+@media(max-width: 1200px) {
+    .container {
+        width: 83%;
+    }
+
+    .message-anim {
+        transform: scale(2.5);
+
+    }
+}
+
+@media(max-width: 1025px) {
+    .container {
+        width: 100%;
+    }
+
+    .menu {
+        gap: 4rem;
+    }
+
+    .menu__btn {
+        font-size: 2.5rem;
+    }
+
+    .message__text {
+        top: 10%;
+        left: 41%;
+    }
+
+    .game__example {
+        top: 19%;
+        left: 30%;
+    }
+}
+
+@media(max-width: 769px) {}
+
 @media(max-width: 490px) {
+
     .container {
         width: 100%;
     }

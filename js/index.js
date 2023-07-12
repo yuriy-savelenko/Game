@@ -44,7 +44,10 @@ const creatTable = () => {
         gameField.style.color = `rgb(${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)})`;
         gameField.textContent = e;
         container.append(gameField);
-        console.log(numbers.length);
+        if (numbers[0] > 5) {
+            gameField.classList.add('shrink-game-field');
+
+        } return
     })
 }
 
@@ -81,7 +84,7 @@ btnStart.addEventListener('click', () => {
     rows = 5;
     columns = 5;
     message.classList.add('hide');
-    audio.play();
+    // audio.play();
     generateNumbers(rows, columns);
     creatTable(rows, columns);
     timerBox.classList.add('show');
@@ -121,7 +124,7 @@ btnNextLevel.addEventListener('click', () => {
     intervalId = setInterval(changingTimer, 1000);
     message.classList.add('hide');
     btnNextLevel.setAttribute('disabled', true);
-    btnNextLevel.classList.add('disabled')
+    btnNextLevel.classList.add('disabled');
     audioClick.play();
 });
 
