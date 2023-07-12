@@ -76,8 +76,21 @@ body {
 
 }
 
-.game__container {
-    margin: 0 auto;
+.game {
+    &__containe {
+        margin: 0 auto;
+    }
+
+    &__example {
+        position: absolute;
+        background-image: url(../img/example.png);
+        background-repeat: no-repeat;
+        background-size: 500px 500px;
+        width: 100%;
+        top: 27%;
+        left: 35%;
+        height: 100%;
+    }
 }
 
 .game-field {
@@ -136,12 +149,14 @@ body {
 
 
 .timer {
+    padding-top: 28px;
     visibility: hidden;
     text-align: center;
     top: 0;
     left: 50%;
     right: 50%;
-    font-size: 3rem;
+    line-height: 0.5;
+    font-size: 61px;
     color: rgb(25, 151, 29);
     font-weight: bold;
 }
@@ -155,6 +170,8 @@ body {
 
 .message__text {
     position: absolute;
+    top: 16%;
+    left: 43%;
     // border: 1px solid #701b09;
     font-weight: bold;
     // padding: 20px;
@@ -164,15 +181,14 @@ body {
 }
 
 .message-anim {
-    top: 34%;
-    left: 46%;
     font-size: 1rem;
     transform: scale(4);
     transition: transform 2s ease;
 }
 
 .message-congratulation {
-    left: 39%;
+    left: 46%;
+    top: 35%;
 }
 
 .show {

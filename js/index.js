@@ -7,14 +7,15 @@ const message = document.getElementById('message');
 const audio = document.getElementById('audio');
 const audioClick = document.getElementById('audio_click');
 const audioMiss = document.getElementById('audio_miss');
+const example = document.getElementById('example')
 const numbers = [];
 let targetNumber = 1;
 let rows;
 let columns;
 let intervalId;
-let timer = 55;
+let timer = 60;
 
-// Функция генерирует числа от 1 до заданного числа (вычисляемого из произведения заданных в аргументы чисел),
+// Функция генерирует числа от 1 до заданного числа(вычисляемого из произведения заданных в аргументы чисел),
 // далее добавляет их в пустой массив numbers и перемешивает массив в рандомном порядке.
 
 const generateNumbers = (row, col) => {
@@ -33,11 +34,10 @@ const getRandomNumberInRange = (min, max) => {
 };
 
 // Функция создает дивы с цифрами рандомного размера и цвета внутри, после чего заполняет 
-// родительский контейнер данными дивами (количество дивов является результатом вычисления произведения кол-ва колонок на кол-во).
+// родительский контейнер данными дивами (количество дивов является результатом вычисления произведения кол-ва колонок на кол-во),
 
 const creatTable = () => {
     numbers.forEach((e) => {
-<<<<<<< HEAD
         const gameField = document.createElement('div');
         gameField.classList.add('game-field');
         gameField.style.fontSize = `${getRandomNumberInRange(30, 70) + 'px'}`;
@@ -45,14 +45,6 @@ const creatTable = () => {
         gameField.textContent = e;
         container.append(gameField);
         console.log(numbers.length);
-=======
-        const box = document.createElement('div');
-        box.classList.add('box');
-        box.style.fontSize = `${getRandomNumberInRange(20, 60) + 'px'}`;
-        box.style.color = `rgb(${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)})`;
-        box.textContent = e;
-        container.append(box);
->>>>>>> f96dec41cf7101b591b86078cd6f3ca59343cb0f
     })
 }
 
@@ -66,6 +58,25 @@ window.onload = () => {
     message.classList.add('message-anim')
 }
 
+const changingTimer = () => {
+    timer -= 1;
+    timerBox.textContent = timer;
+    if (timer === 30) {
+        timerBox.style.color = 'rgb(255 247 46)'
+    };
+    if (timer === 10) {
+        timerBox.style.color = 'rgb(201, 35, 35)'
+    };
+    if (timer === 0) {
+        message.classList.add('message-congratulation')
+        message.classList.remove('hide');
+        message.textContent = 'You loose! xD';
+        deleteTable();
+        timerBox.classList.remove('show')
+        clearInterval(intervalId);
+    };
+}
+
 btnStart.addEventListener('click', () => {
     rows = 5;
     columns = 5;
@@ -75,27 +86,10 @@ btnStart.addEventListener('click', () => {
     creatTable(rows, columns);
     timerBox.classList.add('show');
     timerBox.textContent = timer;
-    intervalId = setInterval(() => {
-        timer -= 1;
-        timerBox.textContent = timer;
-        if (timer === 30) {
-            timerBox.style.color = 'rgb(255 247 46)'
-        };
-        if (timer === 10) {
-            timerBox.style.color = 'rgb(201, 35, 35)'
-        };
-        if (timer === 0) {
-            message.classList.add('message-congratulation')
-            message.classList.remove('hide');
-            timerBox.classList.remove('show')
-            message.textContent = 'You loose! xD';
-            deleteTable();
-            clearInterval(intervalId);
-        };
-    }, 1000);
-
+    intervalId = setInterval(changingTimer, 1000);
+    example.classList.add('hide')
     btnStart.classList.add('hide');
-    btnFinish.classList.add('show');
+    audioClick.play();
 });
 
 btnFinish.addEventListener('click', () => {
@@ -104,11 +98,13 @@ btnFinish.addEventListener('click', () => {
     targetNumber = 1;
     timer = 60;
     // message.classList.remove('message-congratulation')
+    btnNextLevel.setAttribute('disabled', true);
+    btnNextLevel.classList.add('disabled')
     message.classList.remove('hide');
     message.textContent = 'Find in order all the numbers from 1 and up';
-    btnFinish.classList.remove('show');
     btnStart.classList.remove('hide');
     timerBox.classList.remove('show');
+    audioClick.play();
 })
 
 btnNextLevel.addEventListener('click', () => {
@@ -122,24 +118,11 @@ btnNextLevel.addEventListener('click', () => {
     creatTable(rows, columns);
     timerBox.classList.add('show');
     timerBox.textContent = timer;
-    intervalId = setInterval(() => {
-        timer -= 1;
-        timerBox.textContent = timer;
-        if (timer === 30) {
-            timerBox.style.color = 'rgb(255 247 46)'
-        };
-        if (timer === 10) {
-            timerBox.style.color = 'rgb(201, 35, 35)'
-        };
-        if (timer === 0) {
-            message.classList.add('message-congratulation')
-            message.classList.remove('hide');
-            message.textContent = 'You loose! xD';
-            deleteTable();
-            clearInterval(intervalId);
-        };
-    }, 1000);
+    intervalId = setInterval(changingTimer, 1000);
     message.classList.add('hide');
+    btnNextLevel.setAttribute('disabled', true);
+    btnNextLevel.classList.add('disabled')
+    audioClick.play();
 });
 
 container.addEventListener('click', (event) => {
@@ -165,19 +148,20 @@ container.addEventListener('click', (event) => {
         deleteTable();
         clearInterval(intervalId);
         message.classList.remove('hide');
-        message.classList.add('message-congratulation')
+        message.classList.add('message-congratulation');
         message.textContent = 'Level completed!';
-        btnNextLevel.classList.remove('hide');
-        btnNextLevel.removeAttribute('disabled')
-        btnNextLevel.classList.remove('disabled')
+        btnNextLevel.removeAttribute('disabled');
+        btnNextLevel.classList.remove('disabled');
+        timerBox.classList.remove('show')
     };
     if (targetNumber === 2 && numbers.length === 35) {
         deleteTable();
         clearInterval(intervalId);
         message.classList.remove('hide');
-        message.textContent = 'Level completed';
-        btnFinish.classList.add('show');
-        btnNextLevel.classList.add('show');
+        message.textContent = 'You win!';
+        timerBox.classList.remove('show')
+        btnNextLevel.setAttribute('disabled', true);
+        btnNextLevel.classList.add('disabled')
     };
 
 });
