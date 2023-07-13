@@ -5,9 +5,11 @@ const container = document.getElementById('container');
 const timerBox = document.getElementById('timer');
 const message = document.getElementById('message');
 const audio = document.getElementById('audio');
-const audioClick = document.getElementById('audio_click');
-const audioMiss = document.getElementById('audio_miss');
-const example = document.getElementById('example')
+const audioClick = document.getElementById('audio-click');
+const audioMiss = document.getElementById('audio-miss');
+const audioComplete = document.getElementById('audio-complete');
+const example = document.getElementById('example');
+
 const numbers = [];
 let targetNumber = 1;
 let rows;
@@ -40,13 +42,12 @@ const creatTable = () => {
     numbers.forEach((e) => {
         const gameField = document.createElement('div');
         gameField.classList.add('game-field');
-        gameField.style.fontSize = `${getRandomNumberInRange(30, 70) + 'px'}`;
+        gameField.style.fontSize = `${getRandomNumberInRange(30, 60) + 'px'}`;
         gameField.style.color = `rgb(${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)})`;
         gameField.textContent = e;
         container.append(gameField);
         if (numbers[0] > 5) {
             gameField.classList.add('shrink-game-field');
-
         } return
     })
 }
@@ -59,6 +60,12 @@ const deleteTable = () => {
 
 window.onload = () => {
     message.classList.add('message-anim')
+}
+
+window.onunload = () => {
+    audio.currentTime = 0
+    audio.pause();
+
 }
 
 const changingTimer = () => {
@@ -84,7 +91,7 @@ btnStart.addEventListener('click', () => {
     rows = 5;
     columns = 5;
     message.classList.add('hide');
-    // audio.play();
+    audio.play();
     generateNumbers(rows, columns);
     creatTable(rows, columns);
     timerBox.classList.add('show');
@@ -92,6 +99,7 @@ btnStart.addEventListener('click', () => {
     intervalId = setInterval(changingTimer, 1000);
     example.classList.add('hide')
     btnStart.classList.add('hide');
+    btnFinish.classList.add('btn-move')
     audioClick.play();
 });
 
@@ -104,9 +112,12 @@ btnFinish.addEventListener('click', () => {
     btnNextLevel.setAttribute('disabled', true);
     btnNextLevel.classList.add('disabled')
     message.classList.remove('hide');
+    message.classList.remove('message-congratulation')
     message.textContent = 'Find in order all the numbers from 1 and up';
+    example.classList.remove('hide')
     btnStart.classList.remove('hide');
     timerBox.classList.remove('show');
+    btnFinish.classList.remove('btn-move')
     audioClick.play();
 })
 
@@ -148,6 +159,7 @@ container.addEventListener('click', (event) => {
         }, 500);
     };
     if (targetNumber === 2 && numbers.length === 25) {
+        audioComplete.play()
         deleteTable();
         clearInterval(intervalId);
         message.classList.remove('hide');
@@ -158,9 +170,11 @@ container.addEventListener('click', (event) => {
         timerBox.classList.remove('show')
     };
     if (targetNumber === 2 && numbers.length === 35) {
+        audioComplete.play()
         deleteTable();
         clearInterval(intervalId);
         message.classList.remove('hide');
+        message.classList.add('message-win');
         message.textContent = 'You win!';
         timerBox.classList.remove('show')
         btnNextLevel.setAttribute('disabled', true);

@@ -16,7 +16,7 @@
 body {
   max-width: 1700px;
   margin: 0 auto;
-  background-color: rgb(194, 158, 134);
+  background-color: rgb(157, 142, 127);
   background-image: url(/img/bg.jpg);
   background-position: center;
   background-size: cover;
@@ -124,7 +124,7 @@ body {
 }
 
 .message-congratulation {
-  left: 46%;
+  left: 48%;
   top: 35%;
 }
 
@@ -167,33 +167,92 @@ body {
   .menu__btn {
     font-size: 2.5rem;
   }
-  .message__text {
-    top: 10%;
-    left: 41%;
-  }
   .game__example {
-    top: 19%;
     left: 30%;
   }
 }
-@media (max-width: 490px) {
-  .container {
-    width: 100%;
+@media (max-width: 970px) {
+  .menu__btn {
+    font-size: 2rem;
   }
-  .btn {
-    font-size: 15px;
+  .message__text {
+    font-size: 0.8rem;
+    top: 12%;
   }
-  .btn3 {
-    left: 0;
-    width: 40%;
-  }
+}
+@media (max-width: 769px) {
   .game-field {
-    width: 18.88%;
     margin: 2px;
   }
-  .message {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
+  .message__text {
+    font-size: 0.8rem;
+    top: 12%;
   }
+  .game__example {
+    top: 19%;
+    left: 26%;
+  }
+  .message-congratulation {
+    font-size: 1.5rem;
+    top: 25%;
+    left: 45%;
+  }
+}
+@media (max-width: 766px) {
+  .game-field {
+    margin: 2px;
+    width: 18.8%;
+  }
+  .message__text {
+    font-size: 0.8em;
+    transform: scale(1.8);
+  }
+}
+@media (max-width: 700px) {
+  .menu__btn {
+    font-size: 1.5rem;
+    position: absolute;
+  }
+  .container {
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+    margin: 20px 20px 40px 20px;
+  }
+  .menu__btn1 {
+    top: 2%;
+    left: 5%;
+  }
+  .menu__btn2 {
+    top: 2%;
+    left: 30%;
+  }
+  .menu__btn3 {
+    top: 2%;
+    left: 67%;
+  }
+  .game__example {
+    height: 400px;
+    width: 400px;
+    background-size: 400px 400px;
+    top: 30%;
+    left: 1%;
+  }
+  .message__text {
+    font-size: 0.46em;
+    top: 20%;
+    left: 25%;
+    transform: scale(1.8);
+  }
+  .message-congratulation {
+    font-size: 1.5rem;
+    top: 37%;
+    left: 28%;
+  }
+  .message-win {
+    left: 41%;
+  }
+}
+.btn-move {
+  left: -3%;
 }/*# sourceMappingURL=style.css.map */
