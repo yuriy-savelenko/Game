@@ -4,10 +4,12 @@ const btnNextLevel = document.getElementById('btn3')
 const container = document.getElementById('container');
 const timerBox = document.getElementById('timer');
 const message = document.getElementById('message');
-const audio = document.getElementById('audio');
+const audioFirstLevel = document.getElementById('audio');
+const audioSecondLevel = document.getElementById('audio2');
 const audioClick = document.getElementById('audio-click');
 const audioMiss = document.getElementById('audio-miss');
 const audioComplete = document.getElementById('audio-complete');
+const audioLoose = document.getElementById('audio-loose');
 const example = document.getElementById('example');
 
 const numbers = [];
@@ -46,8 +48,8 @@ const creatTable = () => {
         gameField.style.color = `rgb(${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)})`;
         gameField.textContent = e;
         container.append(gameField);
-        if (numbers[0] > 5) {
-            gameField.classList.add('shrink-game-field');
+        if (window.innerWidth < 500 && numbers.length > 25) {
+            gameField.classList.add('shrink')
         } return
     })
 }
@@ -62,11 +64,11 @@ window.onload = () => {
     message.classList.add('message-anim')
 }
 
-window.onunload = () => {
-    audio.currentTime = 0
-    audio.pause();
+// window.onunload = () => {
+//     audio.currentTime = 0
+//     audio.pause();
 
-}
+// }
 
 const changingTimer = () => {
     timer -= 1;
@@ -80,6 +82,9 @@ const changingTimer = () => {
     if (timer === 0) {
         message.classList.add('message-congratulation')
         message.classList.remove('hide');
+        audioFirstLevel.pause()
+        audioSecondLevel.pause()
+        audioLoose.play()
         message.textContent = 'You loose! xD';
         deleteTable();
         timerBox.classList.remove('show')
@@ -91,7 +96,8 @@ btnStart.addEventListener('click', () => {
     rows = 5;
     columns = 5;
     message.classList.add('hide');
-    audio.play();
+    audioFirstLevel.load()
+    audioFirstLevel.play()
     generateNumbers(rows, columns);
     creatTable(rows, columns);
     timerBox.classList.add('show');
@@ -109,6 +115,7 @@ btnFinish.addEventListener('click', () => {
     targetNumber = 1;
     timer = 60;
     // message.classList.remove('message-congratulation')
+    message.classList.remove('message-win');
     btnNextLevel.setAttribute('disabled', true);
     btnNextLevel.classList.add('disabled')
     message.classList.remove('hide');
@@ -122,6 +129,8 @@ btnFinish.addEventListener('click', () => {
 })
 
 btnNextLevel.addEventListener('click', () => {
+    audioSecondLevel.load();
+    audioSecondLevel.play();
     deleteTable();
     clearInterval(intervalId);
     targetNumber = 1;
@@ -152,7 +161,7 @@ container.addEventListener('click', (event) => {
         target.classList.add('anim');
         audioClick.play();
     } else {
-        target.style.backgroundColor = 'rgb(123 ,50 ,77 ,0.67)';
+        target.style.backgroundColor = 'rgb(123,50,77,0.67)';
         audioMiss.play();
         setTimeout(() => {
             target.style.backgroundColor = (targetNumber >= target.textContent) ? '#306b3bab' : 'rgb(88, 76, 60, .5)';
@@ -168,6 +177,7 @@ container.addEventListener('click', (event) => {
         btnNextLevel.removeAttribute('disabled');
         btnNextLevel.classList.remove('disabled');
         timerBox.classList.remove('show')
+        audioFirstLevel.pause()
     };
     if (targetNumber === 2 && numbers.length === 35) {
         audioComplete.play()
@@ -179,6 +189,7 @@ container.addEventListener('click', (event) => {
         timerBox.classList.remove('show')
         btnNextLevel.setAttribute('disabled', true);
         btnNextLevel.classList.add('disabled')
+        audioSecondLevel.pause()
     };
 
 });

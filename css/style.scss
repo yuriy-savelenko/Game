@@ -117,7 +117,7 @@ body {
         top: 0;
         cursor: pointer;
         background-color: transparent;
-        color: #701b09;
+        color: #a9412d;
         border: none;
         font-family: inherit;
         white-space: nowrap;
@@ -171,21 +171,6 @@ body {
     top: 35%;
 }
 
-.show {
-    visibility: visible;
-}
-
-.hide {
-    visibility: hidden;
-}
-
-.disabled {
-    color: rgb(80 76 76);
-}
-
-.shrink-game-field {
-    margin: 3px;
-}
 
 @media(max-width: 1440px) {
     .message-anim {
@@ -261,7 +246,6 @@ body {
 @media(max-width: 766px) {
 
     .game-field {
-        margin: 2px;
         width: 18.8%;
     }
 
@@ -272,6 +256,7 @@ body {
 }
 
 @media(max-width: 700px) {
+
     .menu__btn {
         font-size: 1.5rem;
         position: absolute;
@@ -281,35 +266,37 @@ body {
         justify-content: center;
         width: 100%;
         height: 80vh;
-        margin: 20px 20px 40px 20px;
+        margin: 5px;
     }
 
     .menu__btn1 {
         top: 2%;
-        left: 5%;
+        left: 0;
     }
 
     .menu__btn2 {
         top: 2%;
-        left: 30%;
+        left: 25%;
     }
 
     .menu__btn3 {
         top: 2%;
-        left: 67%;
+        left: 60%;
     }
 
     .game__example {
-        height: 400px;
-        width: 400px;
-        background-size: 400px 400px;
+        height: 350px;
+        width: 350px;
+        background-size: 350px 350px;
         top: 30%;
-        left: 1%;
+        left: 3%;
     }
 
     .message__text {
-        font-size: 0.46em;
-        top: 20%;
+        width: 50%;
+        text-align: center;
+        font-size: .9em;
+        top: 13%;
         left: 25%;
         transform: scale(1.8);
     }
@@ -317,15 +304,32 @@ body {
     .message-congratulation {
         font-size: 1.5rem;
         top: 37%;
-        left: 28%;
+        left: 25%;
     }
 
     .message-win {
-        left: 41%;
+        left: 30%;
     }
 
 }
 
+.show {
+    visibility: visible;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.disabled {
+    color: rgb(80 76 76);
+}
+
 .btn-move {
     left: -3%;
+}
+
+.shrink {
+    padding-top: 20px;
+    height: 75px;
 }
