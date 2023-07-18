@@ -64,12 +64,6 @@ window.onload = () => {
     message.classList.add('message-anim')
 }
 
-// window.onunload = () => {
-//     audio.currentTime = 0
-//     audio.pause();
-
-// }
-
 const changingTimer = () => {
     timer -= 1;
     timerBox.textContent = timer;
@@ -114,7 +108,6 @@ btnFinish.addEventListener('click', () => {
     clearInterval(intervalId);
     targetNumber = 1;
     timer = 60;
-    // message.classList.remove('message-congratulation')
     message.classList.remove('message-win');
     btnNextLevel.setAttribute('disabled', true);
     btnNextLevel.classList.add('disabled')
@@ -167,7 +160,7 @@ container.addEventListener('click', (event) => {
             target.style.backgroundColor = (targetNumber >= target.textContent) ? '#306b3bab' : 'rgb(88, 76, 60, .5)';
         }, 500);
     };
-    if (targetNumber === 2 && numbers.length === 25) {
+    if (targetNumber === 26 && numbers.length === 25) {
         audioComplete.play()
         deleteTable();
         clearInterval(intervalId);
@@ -179,7 +172,7 @@ container.addEventListener('click', (event) => {
         timerBox.classList.remove('show')
         audioFirstLevel.pause()
     };
-    if (targetNumber === 2 && numbers.length === 35) {
+    if (targetNumber === 36 && numbers.length === 35) {
         audioComplete.play()
         deleteTable();
         clearInterval(intervalId);

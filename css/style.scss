@@ -65,7 +65,6 @@ body {
     color: rgb(103, 21, 21);
     -webkit-filter: drop-shadow(5px 5px 10px #666);
     filter: drop-shadow(5px 5px 10px #666);
-
 }
 
 .game {
@@ -121,10 +120,8 @@ body {
         border: none;
         font-family: inherit;
         white-space: nowrap;
-
         font-size: 3rem;
         font-weight: bold;
-
     }
 
     &__btn:hover {
@@ -170,7 +167,6 @@ body {
     left: 48%;
     top: 35%;
 }
-
 
 @media(max-width: 1440px) {
     .message-anim {
