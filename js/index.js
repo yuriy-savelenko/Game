@@ -74,11 +74,11 @@ const changingTimer = () => {
         timerBox.style.color = 'rgb(201, 35, 35)'
     };
     if (timer === 0) {
-        message.classList.add('message-congratulation')
-        message.classList.remove('hide');
         audioFirstLevel.pause()
         audioSecondLevel.pause()
         audioLoose.play()
+        message.classList.add('message-congratulation')
+        message.classList.remove('hide');
         message.textContent = 'You loose! xD';
         deleteTable();
         timerBox.classList.remove('show')
@@ -108,6 +108,8 @@ btnFinish.addEventListener('click', () => {
     clearInterval(intervalId);
     targetNumber = 1;
     timer = 60;
+    audioFirstLevel.pause();
+    audioSecondLevel.pause();
     message.classList.remove('message-win');
     btnNextLevel.setAttribute('disabled', true);
     btnNextLevel.classList.add('disabled')
