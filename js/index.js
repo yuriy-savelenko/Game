@@ -1,7 +1,7 @@
 const btnStart = document.getElementById('btn1');
 const btnFinish = document.getElementById('btn2');
 const btnNextLevel = document.getElementById('btn3')
-const container = document.getElementById('container');
+const mainGamingField = document.getElementById('main-gaming-field');
 const timerBox = document.getElementById('timer');
 const message = document.getElementById('message');
 const audioFirstLevel = document.getElementById('audio');
@@ -19,8 +19,9 @@ let columns;
 let intervalId;
 let timer = 60;
 
-// Функция генерирует числа от 1 до заданного числа(вычисляемого из произведения заданных в аргументы чисел),
-// далее добавляет их в пустой массив numbers и перемешивает массив в рандомном порядке.
+window.onload = () => {
+    message.classList.add('message-anim')
+}
 
 const generateNumbers = (row, col) => {
     let end = numbers.length;
@@ -31,14 +32,10 @@ const generateNumbers = (row, col) => {
     }
     numbers.sort(() => Math.random() - 0.5);
 }
-//  Функция возвращает случайное число  в диапазоне от минимального до максимального.
 
 const getRandomNumberInRange = (min, max) => {
     return Math.ceil(Math.random() * (max - min) + min);
 };
-
-// Функция создает дивы с цифрами рандомного размера и цвета внутри, после чего заполняет 
-// родительский контейнер данными дивами (количество дивов является результатом вычисления произведения кол-ва колонок на кол-во),
 
 const creatTable = () => {
     numbers.forEach((e) => {
@@ -47,22 +44,16 @@ const creatTable = () => {
         gameField.style.fontSize = `${getRandomNumberInRange(30, 60) + 'px'}`;
         gameField.style.color = `rgb(${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)}, ${getRandomNumberInRange(0, 255)})`;
         gameField.textContent = e;
-        container.append(gameField);
+        mainGamingField.append(gameField);
         if (window.innerWidth < 500 && numbers.length > 25) {
             gameField.classList.add('shrink')
         } return
     })
 }
 
-// Функция удаляет все элементы из родительского контейнера игрового поля.
-
 const deleteTable = () => {
-    container.replaceChildren();
+    mainGamingField.replaceChildren();
 };
-
-window.onload = () => {
-    message.classList.add('message-anim')
-}
 
 const changingTimer = () => {
     timer -= 1;
@@ -143,11 +134,11 @@ btnNextLevel.addEventListener('click', () => {
     audioClick.play();
 });
 
-container.addEventListener('click', (event) => {
+mainGamingField.addEventListener('click', (event) => {
 
     const target = event.target;
 
-    if (target === container) {
+    if (target === mainGamingField) {
         return;
     }
     if (targetNumber == target.textContent) {

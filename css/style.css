@@ -1,6 +1,3 @@
-:root {
-  --text-color: rgb(80 76 76);
-}
 @keyframes anim {
   from {
     transform: scale(1.2);
@@ -26,12 +23,12 @@ body {
   overflow: hidden;
 }
 
-.main_container {
+.main__container {
   position: relative;
   display: flex;
 }
 
-.container {
+.main-gaming-field {
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -134,7 +131,7 @@ body {
   }
 }
 @media (max-width: 1200px) {
-  .container {
+  .main-gaming-field {
     width: 83%;
   }
   .message-anim {
@@ -142,7 +139,7 @@ body {
   }
 }
 @media (max-width: 1025px) {
-  .container {
+  .main-gaming-field {
     width: 100%;
   }
   .menu {
@@ -196,7 +193,7 @@ body {
     font-size: 1.5rem;
     position: absolute;
   }
-  .container {
+  .main-gaming-field {
     justify-content: center;
     width: 100%;
     height: 80vh;

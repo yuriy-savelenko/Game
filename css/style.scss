@@ -1,7 +1,3 @@
-:root {
-    --text-color: rgb(80 76 76);
-}
-
 @-webkit-keyframes anim {
     from {
         -webkit-transform: scale(1.2);
@@ -44,14 +40,14 @@ body {
     overflow: hidden;
 }
 
-.main_container {
+.main__container {
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.container {
+.main-gaming-field {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -107,8 +103,13 @@ body {
 
 
 .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding-top: 3rem;
     gap: 1rem;
 
@@ -159,8 +160,14 @@ body {
 
 .message-anim {
     font-size: 1rem;
-    transform: scale(4);
+    -webkit-transform: scale(4);
+        -ms-transform: scale(4);
+            transform: scale(4);
+    -webkit-transition: -webkit-transform 2s ease;
+    transition: -webkit-transform 2s ease;
+    -o-transition: transform 2s ease;
     transition: transform 2s ease;
+    transition: transform 2s ease, -webkit-transform 2s ease;
 }
 
 .message-congratulation {
@@ -170,23 +177,27 @@ body {
 
 @media(max-width: 1440px) {
     .message-anim {
-        transform: scale(3);
+        -webkit-transform: scale(3);
+            -ms-transform: scale(3);
+                transform: scale(3);
     }
 }
 
 @media(max-width: 1200px) {
-    .container {
+    .main-gaming-field {
         width: 83%;
     }
 
     .message-anim {
-        transform: scale(2.5);
+        -webkit-transform: scale(2.5);
+            -ms-transform: scale(2.5);
+                transform: scale(2.5);
 
     }
 }
 
 @media(max-width: 1025px) {
-    .container {
+    .main-gaming-field {
         width: 100%;
     }
 
@@ -247,7 +258,9 @@ body {
 
     .message__text {
         font-size: 0.8em;
-        transform: scale(1.8);
+        -webkit-transform: scale(1.8);
+            -ms-transform: scale(1.8);
+                transform: scale(1.8);
     }
 }
 
@@ -258,8 +271,10 @@ body {
         position: absolute;
     }
 
-    .container {
-        justify-content: center;
+    .main-gaming-field {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         width: 100%;
         height: 80vh;
         margin: 5px;
@@ -294,7 +309,9 @@ body {
         font-size: .9em;
         top: 13%;
         left: 25%;
-        transform: scale(1.8);
+        -webkit-transform: scale(1.8);
+            -ms-transform: scale(1.8);
+                transform: scale(1.8);
     }
 
     .message-congratulation {
